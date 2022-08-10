@@ -1,0 +1,75 @@
+
+<form class="card" #data="ngForm" (ngSubmit)="submit(data)"> 
+    <div class="form-group">  
+       <label>Name:*</label>
+       <input type="text"  name="name"   #name="ngModel" ngModel required >
+       <mat-error *ngIf="name.errors?.['required'] && name.touched">
+        Please enter your Name
+       </mat-error> 
+    </div>
+    <div class="form-group">
+        <label>Email:*</label>
+        <input type="email" name="email" #email="ngModel" ngModel required >
+        <mat-error *ngIf="email.errors?.['required'] && email.touched">
+         Please enter your Email
+        </mat-error> 
+    </div>
+    <div class="form-group">
+        <label>Phone:*</label>
+        <input type="tel" name="phone" #phone1="ngModel" ngModel required >
+        <mat-error *ngIf="phone1.errors?.['required'] && phone1.touched ">Please enter your Phone number</mat-error>
+    </div>
+    <div class="form-group">
+        <label>Fax:</label>
+        <input type="text"></div>
+    <div class="form-group">
+        <label>Address:*</label>
+        <textarea name="address" #address="ngModel" ngModel required></textarea>
+        <mat-error *ngIf="address.errors?.['required'] && address.touched">
+            Please enter your Address
+        </mat-error>
+    </div>
+    <div class="form-group">
+        <label>Postcode:*</label>
+        <input type="number" name="post" #post="ngModel" ngModel required>
+        <mat-error *ngIf="post.errors?.['required'] && post.touched"> Please enter your postcode</mat-error>
+    </div>
+    <div class="form-group"><label>Country:*</label>
+        <select  name="country" #con="ngModel" ngModel required>
+            <option></option>
+            <option>India</option>
+            <option>USA</option>
+            <option>UAE</option>
+            <option>UK</option>      
+        </select>
+        <mat-error *ngIf="con.errors?.['required'] && con.touched"> Please enter your Country</mat-error>
+    
+    </div>
+    <span></span>
+    <div class="form-group">
+        <label>D.O.B:*</label>
+        <input type="date" name="dob" #dob="ngModel" ngModel required>
+        <mat-error *ngIf="dob.errors?.['required'] && dob.touched"> Please enter your Country</mat-error>
+    
+    </div>
+    <div class="form-group">
+        <label>Sex:*</label> 
+        <input type="radio" value="male" name="gender" #gender="ngModel" ngModel required>
+        <span>Male</span> 
+        <input type="radio" value="female" name="gender" #grnder="ngModel" ngModel required>
+        <span>Female</span>
+        <mat-error *ngIf="gender.errors?.['required'] && gender.touched"> Please enter your Country</mat-error>
+    
+    </div>
+    <div class="form-group">
+        <label>Disclamer:*</label>
+        <input type="checkbox" name="disc" #disc="ngModel" ngModel >
+        <mat-error *ngIf="disc.errors?.['required'] && disc.touched"> Please enter your Country</mat-error>
+    
+    </div>
+    <div style="margin-left: 100px;" class="form-group">
+        <button type="submit" [disabled]="!data.form.valid">submit</button>
+    </div>
+    
+    </form>
+    
